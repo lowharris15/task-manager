@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        
+        <!-- Task Input Form -->
+        <div class="task-form">
+            <input type="text" id="taskInput" placeholder="Enter a new task">
+            <textarea id="taskDescription" placeholder="Enter task description (optional)"></textarea>
+            <div class="task-form-row">
+                <select id="taskPriority">
+                    <option value="low">Low Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+                <input type="datetime-local" id="taskStartDate">
+                <input type="datetime-local" id="taskDueDate">
+                <select id="taskDuration">
+                    <option value="3600000">1 hour</option>
+                    <option value="7200000">2 hours</option>
+                    <option value="14400000">4 hours</option>
+                    <option value="28800000">8 hours</option>
+                </select>
+            </div>
+            <button id="addButton">Add Task</button>
+        </div>
+
+        <!-- Task List -->
+        <div class="task-list-header">
+            <select id="filterPriority" onchange="filterTasks()">
+                <option value="all">All Priorities</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="filterTasks()">
+        </div>
+        
+        <div id="taskList" class="task-list"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
